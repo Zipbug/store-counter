@@ -1,10 +1,62 @@
 $(function () {
   var $location = new URL(window.location).searchParams.get("i");
-  var JoinRoom = function(room){
-    var socket = io();
-    socket.emit('join',room);
-      $('.main').html('<div id="total">0</div><form id="m" ><button type="submit">-1</button></form><form id="p" ><button type="submit">+1</button></form><div class="room-id">Room Name: '+room+'</div>');
-      $('body').addClass('loaded');
+  var socket = io();
+  var addCheck = function(){
+    $('#pass').submit(function(){
+      var $pass = $('.password').val();
+      var $obj = {'room': $location, 'password': $pass};
+
+      socket.emit('join', $obj);
+      socket.on('exception', function(message){
+        $('.main').prepend('<div class="error-massage">'+message.errorMessage+'</div>');
+      });
+      socket.on('join', function(data){
+        JoinRoom($location, data);
+      });
+
+      return false;
+    });
+  }
+
+  if($location){
+    $('.main').html('<form id="pass"><input type="text" class="password" placholder="password"></input><button type="submit">Join</button></form>');
+    addCheck();
+    $('body').addClass('loaded');
+  }else{
+    $('.main').html('<form id="room"><input type="number" class="max-oc" placholder="Max Occupency"></input><input type="number" class="total" placholder="Total current"></input><button type="submit">Generate</button></form>');
+    $('body').addClass('loaded');
+    $('#room').submit(function(){
+      var $url_rand = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      var $pass_rand = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      var $total = $('.total').val();
+      var $new_url =  window.location + "?i=" +$url_rand;
+      var $max = $('.max-oc').val();
+      if(!$total){
+        $total = 0;
+      }
+
+      var dat = {"room": $url_rand, "total": $total, "max": $max, "password": $pass_rand};
+      socket.emit('create', dat);
+      $location = $url_rand;
+      $('.main').html('<form id="pass"><input type="text" class="password" placholder="password" value="'+$pass_rand+'"></input><button type="submit">Join</button></form>');
+      addCheck();
+      return false;
+    });
+  }
+
+  var JoinRoom = function(room, data){
+      $('.main').html('<div id="total">'+data.total+'</div>'+
+                        '<form id="m" >'+
+                          '<button type="submit">-1</button>'+
+                        '</form>'+
+                        '<form id="p" >'+
+                          '<button type="submit">+1</button>'+
+                        '</form>'+
+                        '<div id="max-oc">'+data.max+'</div>'+
+                        '<div class="room-data">'+
+                          '<div class="room-id">Room Name: <a href="/?i='+room+'">'+room+'</a></div>'+
+                          '<div class="room-pass">Room Password: '+data.pass+'</div>'+
+                        '</div>');
       $('#m').submit(function(){
         var $total = parseInt($('#total').text()) - 1;
         var $obj = {'room': $location, 'total': $total};
@@ -22,22 +74,22 @@ $(function () {
       socket.on('count', function(total){
         $('#total').text(total);
       });
-
+      socket.on('change_max', function(max_obj){
+        $('#total').text(max_obj.total);
+        $('#max-oc').text(max_obj.max);
+      });
+      $('.room-data').click(function(){
+        var $text = $(this).html();
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($text).select();
+        document.execCommand("copy");
+        $temp.remove()
+        alert('copied to clipboard');
+      })
   }
-
-  if($location){
-    JoinRoom($location);
-  }else{
-    $('.main').html('<form id="room"><button type="submit">Generate</button></form>');
-    $('body').addClass('loaded');
-    $('#room').submit(function(){
-      var $url_rand = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      JoinRoom($url_rand);
-      var $new_url =  window.location + "/?i=" +$url_rand;
-      console.log('url',  $new_url);
-      window.location.href = $new_url;
-    });
-  }
-
-
+  $('#toggle-modal, .close').click(function(){
+    $('.modal').toggleClass('visible');
+    return false;
+  });
 });
