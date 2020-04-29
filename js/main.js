@@ -54,8 +54,8 @@ $(function () {
                         '</form>'+
                         '<form id="max" >'+
                         '<input id="max-oc" type="number">'+data.max+'</input>'+
-                        '<button type="submit">Update</button>'
-                        '</form>'
+                        '<button type="submit">Update</button>'+
+                        '</form>'+
                         '<div class="room-data">'+
                           '<div class="room-id">Room Name: <a href="/?i='+room+'">'+room+'</a></div>'+
                           '<div class="room-pass">Room Password: '+data.pass+'</div>'+
