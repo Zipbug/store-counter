@@ -52,7 +52,10 @@ $(function () {
                         '<form id="p" >'+
                           '<button type="submit">+1</button>'+
                         '</form>'+
-                        '<div id="max-oc">'+data.max+'</div>'+
+                        '<form id="max" >'+
+                        '<input id="max-oc" type="number">'+data.max+'</input>'+
+                        '<button type="submit">Update</button>'
+                        '</form>'
                         '<div class="room-data">'+
                           '<div class="room-id">Room Name: <a href="/?i='+room+'">'+room+'</a></div>'+
                           '<div class="room-pass">Room Password: '+data.pass+'</div>'+
@@ -71,12 +74,20 @@ $(function () {
         socket.emit('count', $obj);
         return false;
       });
+      $('#max').submit(function(){
+        var $total = parseInt($('#total').text()) + 1;
+        var $max = parseInt($('#max-oc').val());
+        var $obj = {'room': $location, 'total': $total};
+
+        socket.emit('change_max', $obj);
+        return false;
+      });
       socket.on('count', function(total){
         $('#total').text(total);
       });
       socket.on('change_max', function(max_obj){
         $('#total').text(max_obj.total);
-        $('#max-oc').text(max_obj.max);
+        $('#max-oc').val(max_obj.max);
       });
       $('.room-data').click(function(){
         var $text = $(this).html();
