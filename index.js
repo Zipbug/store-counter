@@ -22,12 +22,12 @@ io.on('connection', function(socket){
       var total = socket_room && socket_room.roomNumber ? socket_room.roomNumber : 0;
       var max = socket_room && socket_room.maxOccupency ? socket_room.maxOccupency : 0;
       io.to(room_ojb.room).emit('join', {"total": total, "max": max, "pass": room_ojb.password});
-    }else{
-      var message = 'Incorrect Password';
-      if(!socket_room){
-        message = "Room No Loonger exists";
+    }else{      
+      if(socket_room == undefined){
+        socket.emit('exception', {errorMessage: "Room No Loonger exists"});
+      }else{
+        socket.emit('exception', {errorMessage: 'Incorrect Password', "entered":  room_ojb.password, "correct": socket_room.pass});
       }
-      socket.emit('exception', {errorMessage: message, "entered":  room_ojb.password, "correct": socket_room.pass});
     }
   });
   socket.on('change_max', function(count_obj){
