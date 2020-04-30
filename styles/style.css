@@ -250,3 +250,6 @@ svg{
 .copy-link, .copy-password{
   cursor:pointer;
 }
+#qrcode img{
+  margin:auto;
+}

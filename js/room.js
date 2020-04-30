@@ -1,7 +1,6 @@
 $(function () {
   var $location = new URL(window.location).searchParams.get("i");
   var socket = io();
-  console.log(window.location);
 
   checkCookie();
 
@@ -46,7 +45,9 @@ $(function () {
   $("#max-oc").keyup(function(){
     $('.max-submit').removeClass('hidden');
   });
-
+  $('.toggle_qr').click(function(){
+    $('#qrcode').toggleClass('hidden');
+  });
   /*------------- Socket listeners ------------*/
   socket.on('count', function(total){
     $('#total').text(total);
@@ -69,6 +70,7 @@ $(function () {
 
   /* room link generater*/
   function JoinRoom(room, data){
+    console.log(data)
     $('#pass').addClass('hidden');
     $('#total').text(parseInt(data.total));
     $('#max-oc').val(parseInt(data.max));
@@ -118,7 +120,10 @@ $(function () {
       }
     }else if(p){
       loadRoom({'room': $location, 'password': $p});
+    }else if(!$location){
+      window.location.href = "http://occupancy.commandercoding.com/";
     }
+    console.log($location);
     $('body').addClass('loaded');
   }
 

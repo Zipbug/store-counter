@@ -8,6 +8,9 @@ $(function () {
     if(!$total){
       $total = 0;
     }
+    if(!$max){
+      $max = 0;
+    }
     document.cookie = "room_data=" + JSON.stringify({"room": $url_rand, "total": $total, "max": $max, "password": $pass_rand});
     window.location.href = $new_url;
     return false;
