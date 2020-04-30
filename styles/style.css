@@ -98,6 +98,29 @@ form button {
   border-radius: 30px;
 }
 
+.pm_container {
+  max-width: 65%;
+  margin: 0 auto;
+}
+
+.plus {
+  float: right;
+  font-size: 40px;
+  background: #099e22;
+  width: 100px;
+  height: 100px;
+  border-radius: 0px;
+}
+
+.minus {
+  float: left;
+  font-size: 40px;
+  background: #e32e0e;
+  width: 100px;
+  height: 100px;
+  border-radius: 0px;
+}
+
 label {
   color: #495672;
   font-size:28px;
