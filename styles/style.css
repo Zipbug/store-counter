@@ -103,22 +103,31 @@ form button {
   margin: 0 auto;
 }
 
-.plus {
-  float: right;
-  font-size: 40px;
-  background: #099e22;
+.plus, .minus{
   width: 100px;
   height: 100px;
   border-radius: 0px;
+  cursor:pointer;
+  font-size: 40px;
+  transition: background 300ms ease;
+}
+
+.plus {
+  float: right;
+  background: #099e22;
+}
+
+.plus:hover, .plus:focus{
+  background: #64a76f;
 }
 
 .minus {
   float: left;
-  font-size: 40px;
   background: #e32e0e;
-  width: 100px;
-  height: 100px;
-  border-radius: 0px;
+}
+
+.minus:hover, .minus:focus{
+  background: #ef8e7d;
 }
 
 label {
@@ -136,7 +145,11 @@ label {
 #max-oc{
   background-color: transparent;
   border:0;
-  font-size: 28px;
+  font-size: 48px;
+}
+.clearfix{
+  display: block;
+  clear:both;
 }
 
 /*------------- Content  Styles ---------------*/
@@ -233,4 +246,7 @@ svg{
   background-color:#fff;
   border-radius:50%;
   cursor: pointer;
+}
+.copy-link, .copy-password{
+  cursor:pointer;
 }

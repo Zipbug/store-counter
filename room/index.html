@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165010921-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-165010921-1');
+    </script>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Occupancy App</title>
+    <meta name="description" content="In Person Store Counter">
+    <meta name="author" content="Zipbugdev">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Rokkitt:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/loaders.css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+
+    <!-- Favicons
+    ================================================== -->
+  </head>
+  <body>
+    <div class="loading-screen">
+      <div class="loader"><div class="pacman"><div></div><div></div><div></div><div></div><div></div></div></div>
+    </div>
+    <section class="content">
+      <h1>Oppupancy<br> App</h1>
+      <div class="main">
+        <!---- password Form ----->
+        <form id="pass">
+          <label for="password">Password</label>
+          <input type="text" class="password" placeholder="password"></input>
+          <button type="submit">Join</button>
+        </form>
+        <!---- Room Forms ----->
+        <div class="room-count hidden">
+          <h4 class="center-card">
+            <span id="total">0</span><sub>Current Occupancy</sub>
+          </h4>
+          <form id="max">
+            <input id="max-oc" value="0"></input>
+            <sub class="center-card">Max Occupancy</sub>
+            <button type="submit" class="max-submit hidden">Update</button>
+          </form>
+          <div class=pm_container>
+            <form id="p" >
+              <button class="plus" type="submit">+1</button>
+            </form>
+            <form id="m" >
+              <button class="minus" type="submit">-1</button>
+            </form>
+          </div>
+          <div class="clearfix"></div>
+          <div id="qrcode"></div>
+
+          <div class="copy-link">
+            <div class="clipboard"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="clipboard" x="0px" y="0px" width="780.974px" height="780.975px" viewBox="0 0 780.974 780.975" style="enable-background:new 0 0 780.974 780.975;" xml:space="preserve"><path d="M615.062,780.975h-449.16c-30.167,0-54.709-24.543-54.709-54.709V116.704c0-30.167,24.542-54.709,54.709-54.709h147.482     v42.362h153.205V61.995h148.473c30.171,0,54.719,24.542,54.72,54.708v609.563C669.782,756.432,645.235,780.975,615.062,780.975z      M165.902,81.79c-19.252,0-34.915,15.662-34.915,34.914v609.562c0,19.252,15.663,34.914,34.915,34.914h449.16     c19.258,0,34.925-15.662,34.925-34.914V116.704c-0.001-19.251-15.668-34.914-34.925-34.914H486.385v42.362H293.59V81.79H165.902z"/><path d="M458.665,92.139H321.309V28.937h40.981v-1.135C362.291,12.472,374.763,0,390.094,0h0.359     c15.33,0,27.803,12.472,27.803,27.802v1.135h40.407L458.665,92.139L458.665,92.139z M341.104,72.344h97.766V48.732h-40.407     v-20.93c0-4.415-3.592-8.007-8.008-8.007h-0.359c-4.416,0-8.009,3.592-8.009,8.007v20.93h-40.981L341.104,72.344L341.104,72.344z"/></svg></div>
+            Copy Link
+          </div>
+          <div class="copy-pass">
+            <div class="clipboard"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="clipboard" x="0px" y="0px" width="780.974px" height="780.975px" viewBox="0 0 780.974 780.975" style="enable-background:new 0 0 780.974 780.975;" xml:space="preserve"><path d="M615.062,780.975h-449.16c-30.167,0-54.709-24.543-54.709-54.709V116.704c0-30.167,24.542-54.709,54.709-54.709h147.482     v42.362h153.205V61.995h148.473c30.171,0,54.719,24.542,54.72,54.708v609.563C669.782,756.432,645.235,780.975,615.062,780.975z      M165.902,81.79c-19.252,0-34.915,15.662-34.915,34.914v609.562c0,19.252,15.663,34.914,34.915,34.914h449.16     c19.258,0,34.925-15.662,34.925-34.914V116.704c-0.001-19.251-15.668-34.914-34.925-34.914H486.385v42.362H293.59V81.79H165.902z"/><path d="M458.665,92.139H321.309V28.937h40.981v-1.135C362.291,12.472,374.763,0,390.094,0h0.359     c15.33,0,27.803,12.472,27.803,27.802v1.135h40.407L458.665,92.139L458.665,92.139z M341.104,72.344h97.766V48.732h-40.407     v-20.93c0-4.415-3.592-8.007-8.008-8.007h-0.359c-4.416,0-8.009,3.592-8.009,8.007v20.93h-40.981L341.104,72.344L341.104,72.344z"/></svg></div>
+          Copy Password</div>
+        </div>
+      </div>
+      <a href="#footer" id="toggle-modal">Why ads?</a>
+      <div class="add-space"></div>
+      <div class="card">
+        <h2 class="title">WHY?</h2>
+        <p>Quarantine restrictions are starting to loosen up around the world, but health officials are emphasizing the need to keep social distancing practices in place.</p>
+        <br>
+        <p>Limiting the number of customers you allow into your store can help keep minimal distance.</p>
+        <br>
+        <p>We’re happy to offer this simple, free solution.</p>
+      </div>
+      <div class="add-space"></div>
+      <a href="#footer" id="toggle-modal">Why ads?</a>
+      <div class="card center-card">
+        <h2 class="title">Features</h3>
+          <p>Instantly keep track of how many customers are in your store.</p>
+          <hr class="blue">
+          <p>Works with single or multiple store entrances*</p>
+          <sub>*multiple employees can update the same counter and be in sync with other devices synced to the same store code.</sub>
+          <br/>
+          <p>Works on any smart device*</p>
+          <sub>*Internet access required.</sub>
+          <hr class="blue">
+          <p>Private*</p>
+          <sub>*Even the store count is a temporary number that gets wiped regularly, but even then it's tied to a random counter number that was generated when the room was created. No personallly identifiable information is ever used.</sub>
+          <br/>
+          <sub>*3rd Party advertisments privacy policyes fall under their terms of use.</sub>
+          <hr class="blue">
+          <p>Best of all, Free to use</p>
+      </div>
+    </section>
+    <footer id="footer" name="footer">
+      <div class="content">
+        <h3>Why Ads?</h3>
+        <p>As much as we’d like to offer this service completely free, having ads and accepting donations helps keep our servers running.</p>
+        <br>
+        <h3>Donations</h3>
+        <p>Like what you see? Please consider donating through any of the servises below.</p>
+        <a href="https://www.patreon.com/bePatron?u=34549934" data-patreon-widget-type="become-patron-button">Support us through Patreon</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+        <div class="social-icons"></div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="../js/qrcode.min.js"></script>
+    <script src="../js/room.js"></script>
+  </body>
+</html>

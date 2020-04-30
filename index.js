@@ -17,17 +17,26 @@ io.on('connection', function(socket){
   });
   socket.on('join', function(room_ojb){
     var socket_room = io.sockets.adapter.rooms[room_ojb.room];
-    if(socket_room && socket_room.pass == room_ojb.password){
-      socket.join(room_ojb.room);
-      var total = socket_room && socket_room.roomNumber ? socket_room.roomNumber : 0;
-      var max = socket_room && socket_room.maxOccupency ? socket_room.maxOccupency : 0;
-      io.to(room_ojb.room).emit('join', {"total": total, "max": max, "pass": room_ojb.password});
-    }else{
-      if(socket_room == undefined){
-        socket.emit('exception', {errorMessage: "Room No Loonger exists"});
+
+    if(socket_room){      
+      if(socket_room.pass == room_ojb.password){
+        socket.join(room_ojb.room);
+        var total = socket_room && socket_room.roomNumber ? socket_room.roomNumber : 0;
+        var max = socket_room && socket_room.maxOccupency ? socket_room.maxOccupency : 0;
+        io.to(room_ojb.room).emit('join', {"total": total, "max": max, "pass": room_ojb.password});
       }else{
         socket.emit('exception', {errorMessage: 'Incorrect Password'});
       }
+    }else{
+      socket.join(room_ojb.room);
+      socket_room = io.sockets.adapter.rooms[room_ojb.room];
+
+      if(socket_room){
+        socket_room.roomNumber = room_ojb.total ? room_ojb.total : 0;
+        socket_room.maxOccupency = room_ojb.max ? room_ojb.max :  0 ;
+        socket_room.pass = room_ojb.password;
+      }
+      io.to(room_ojb.room).emit('join', room_ojb);
     }
   });
   socket.on('change_max', function(count_obj){
@@ -36,17 +45,6 @@ io.on('connection', function(socket){
     if(socket_room){
       socket_room.roomNumber = count_obj.total;
       socket_room.maxOccupency = count_obj.max;
-    }
-  });
-
-  socket.on('create', function(room_ojb){
-    socket.join(room_ojb.room);
-    var socket_room = io.sockets.adapter.rooms[room_ojb.room];
-
-    if(socket_room){
-      socket_room.roomNumber = room_ojb.total;
-      socket_room.maxOccupency = room_ojb.max;
-      socket_room.pass = room_ojb.password;
     }
   });
 });
