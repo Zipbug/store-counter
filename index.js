@@ -26,7 +26,7 @@ io.on('connection', function(socket){
       if(socket_room == undefined){
         socket.emit('exception', {errorMessage: "Room No Loonger exists"});
       }else{
-        socket.emit('exception', {errorMessage: 'Incorrect Password', "entered":  room_ojb.password, "correct": socket_room.pass});
+        socket.emit('exception', {errorMessage: 'Incorrect Password'});
       }
     }
   });
