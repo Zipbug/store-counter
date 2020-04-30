@@ -73,7 +73,7 @@ $(function () {
     $('#total').text(parseInt(data.total));
     $('#max-oc').val(parseInt(data.max));
     $('.room-count').removeClass('hidden');
-    new QRCode(document.getElementById("qrcode"), 'http://occupancy.commandercoding.com/room/?i=' + $location+ '&p=' + data.password);
+
   }
 
   $('.copy-link').click(function(){
@@ -99,6 +99,7 @@ $(function () {
 
 
   function loadRoom($data){
+    new QRCode(document.getElementById("qrcode"), 'http://occupancy.commandercoding.com/room/?i=' + $location+ '&p=' + $data.password);
     socket.emit('join', $data);
     socket.on('exception', function(message){
       $('.main').prepend('<div class="error-massage">'+message.errorMessage+'</div>');
