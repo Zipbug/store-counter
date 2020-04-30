@@ -18,12 +18,12 @@ io.on('connection', function(socket){
   socket.on('join', function(room_ojb){
     var socket_room = io.sockets.adapter.rooms[room_ojb.room];
 
-    if(socket_room){      
+    if(socket_room){
       if(socket_room.pass == room_ojb.password){
         socket.join(room_ojb.room);
         var total = socket_room && socket_room.roomNumber ? socket_room.roomNumber : 0;
         var max = socket_room && socket_room.maxOccupency ? socket_room.maxOccupency : 0;
-        io.to(room_ojb.room).emit('join', {"total": total, "max": max, "pass": room_ojb.password});
+        io.to(room_ojb.room).emit('join', {"total": total, "max": max, "password": room_ojb.password});
       }else{
         socket.emit('exception', {errorMessage: 'Incorrect Password'});
       }
