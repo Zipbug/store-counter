@@ -22,7 +22,7 @@ io.on('connection', function(socket){
       var total = socket_room && socket_room.roomNumber ? socket_room.roomNumber : 0;
       var max = socket_room && socket_room.maxOccupency ? socket_room.maxOccupency : 0;
       io.to(room_ojb.room).emit('join', {"total": total, "max": max, "pass": room_ojb.password});
-    }else{      
+    }else{
       if(socket_room == undefined){
         socket.emit('exception', {errorMessage: "Room No Loonger exists"});
       }else{
@@ -35,7 +35,7 @@ io.on('connection', function(socket){
     var socket_room = io.sockets.adapter.rooms[count_obj.room];
     if(socket_room){
       socket_room.roomNumber = count_obj.total;
-      socket_room.maxOccupency = room_ojb.max;
+      socket_room.maxOccupency = count_obj.max;
     }
   });
 

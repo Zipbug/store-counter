@@ -1,13 +1,61 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font: 13px Helvetica, Arial; }
-form { background: #000; padding: 3px; width: 100%; }
-form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+body {
+  font-family: 'Rokkitt', serif;
+
+
+  font-size:16px;
+  background:
+    radial-gradient(circle farthest-side at 0% 50%,#fff 23.5%,rgba(240,166,17,0) 0)21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%,#dbdbdb 24%,rgba(240,166,17,0) 0)19px 30px,
+    linear-gradient(#fff 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#fff 0)0 0,
+    linear-gradient(150deg,#fff 24%,#dbdbdb 0,#dbdbdb 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#dbdbdb 0,#dbdbdb 76%,#fff 0)0 0,
+    linear-gradient(30deg,#fff 24%,#dbdbdb 0,#dbdbdb 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#dbdbdb 0,#dbdbdb 76%,#fff 0)0 0,
+    linear-gradient(90deg,#dbdbdb 2%,#fff 0,#fff 98%,#dbdbdb 0%)0 0 #fff;
+    background-size: 40px 60px;
+ }
+ h1{
+   font-weight: bold;
+   text-transform: uppercase;
+ }
+ p{
+   font-family: 'PT Sans', sans-serif;
+ }
+
+form input { text-align:center; text-transform: uppercase;font-family: 'Rokkitt', serif;border: 2px solid #000; padding: 10px; width: 90%; max-width:250px;  display: block; margin: 10px auto; font-size:18px;}
+form button {font-family: 'Rokkitt', serif;  font-weight: bold; font-size:28px;background: #0D8AAB;  color:#fff;border: none; margin:30px auto; display:block; padding: 10px 80px; border-radius: 30px;}
 #messages { list-style-type: none; margin: 0; padding: 0; }
 #messages li { padding: 5px 10px; }
 #messages li:nth-child(odd) { background: #eee; }
 #messages { margin-bottom: 40px }
 .hidden{display:none;}
+label{
+  color:#fff;
+}
+.alert{
+  color:#ff5000;
+}
+h1{
+  font-size:2.5em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.content{
+  width:100%;
+  padding:20px;
+  max-width:1200px;
+  margin:auto;
+  background-color:rgba(255,255,255,0.5);
+}
+.container{
+  background-color:#fff;
+  width:100%;
+  max-width: 800px;
+  padding:40px 20px;
+  text-align: center;
+  margin:10% auto;
+}
+
 #total{
   font-size:50px;
   text-align: center;
@@ -50,6 +98,7 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  text-align: center;
 }
 .modal.visible {
   display:block;
@@ -62,12 +111,15 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  position: relative;
 }
 
 /* The Close Button */
 .close {
   color: #aaa;
-  float: right;
+  position: absolute;
+  top:10px;
+  right:20px;
   font-size: 28px;
   font-weight: bold;
 }
@@ -77,4 +129,11 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.add-space{
+  width:600px;
+  height:150px;
+  margin:20px auto;
+  background-color:#000;
 }

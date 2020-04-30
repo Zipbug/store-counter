@@ -19,11 +19,11 @@ $(function () {
   }
 
   if($location){
-    $('.main').html('<form id="pass"><input type="text" class="password" placholder="password"></input><button type="submit">Join</button></form>');
+    $('.main').html('<form id="pass"><label for="password">Password</label><input type="text" class="password" placeholder="password"></input><button type="submit">Join</button></form>');
     addCheck();
     $('body').addClass('loaded');
   }else{
-    $('.main').html('<form id="room"><input type="number" class="max-oc" placholder="Max Occupency"></input><input type="number" class="total" placholder="Total current"></input><button type="submit">Generate</button></form>');
+    $('.main').html('<form id="room"><input type="text" class="total" placeholder="Starting Occupency"></input><input type="text" class="max-oc" placeholder="Max Occupency"></input><button type="submit">Let\'s Go!</button></form>');
     $('body').addClass('loaded');
     $('#room').submit(function(){
       var $url_rand = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -38,22 +38,23 @@ $(function () {
       var dat = {"room": $url_rand, "total": $total, "max": $max, "password": $pass_rand};
       socket.emit('create', dat);
       $location = $url_rand;
-      $('.main').html('<form id="pass"><input type="text" class="password" placholder="password" value="'+$pass_rand+'"></input><button type="submit">Join</button></form>');
+      $('.main').html('<form id="pass"><label for="password">Password</label><input type="text" class="password" placeholder="password" value="'+$pass_rand+'"></input><button type="submit">Join</button></form>');
       addCheck();
       return false;
     });
   }
 
   var JoinRoom = function(room, data){
-      $('.main').html('<div id="total">'+data.total+'</div>'+
+      $('.main').html('<h4 ><span id="total">'+data.total+'</span><span>- Current Occupency</span></h4>'+
+                        '<form id="p" >'+
+                        '<button type="submit">+1</button>'+
+                        '</form>'+
                         '<form id="m" >'+
                           '<button type="submit">-1</button>'+
                         '</form>'+
-                        '<form id="p" >'+
-                          '<button type="submit">+1</button>'+
-                        '</form>'+
-                        '<form id="max" >'+
-                        '<input id="max-oc" type="number">'+data.max+'</input>'+
+                        '<form id="max">'+
+                        '<label for="max-oc">Max Occupency</label>'+
+                        '<input id="max-oc" type="number" value="'+data.max+'"></input>'+
                         '<button type="submit">Update</button>'+
                         '</form>'+
                         '<div class="room-data">'+
@@ -62,9 +63,11 @@ $(function () {
                         '</div>');
       $('#m').submit(function(){
         var $total = parseInt($('#total').text()) - 1;
-        var $obj = {'room': $location, 'total': $total};
+        if($total >= 0){
+          var $obj = {'room': $location, 'total': $total};
 
-        socket.emit('count', $obj);
+          socket.emit('count', $obj);
+        }
         return false;
       });
       $('#p').submit(function(){
@@ -75,15 +78,23 @@ $(function () {
         return false;
       });
       $('#max').submit(function(){
-        var $total = parseInt($('#total').text()) + 1;
+        var $total = parseInt($('#total').text());
         var $max = parseInt($('#max-oc').val());
-        var $obj = {'room': $location, 'total': $total};
+        var $obj = {'room': $location, 'total': $total, 'max': $max};
 
         socket.emit('change_max', $obj);
         return false;
       });
       socket.on('count', function(total){
         $('#total').text(total);
+        var $max = $('#max-oc').val();
+        if($max > 0){
+          if(total >= $max -5){
+            $('#total').addClass('alert');
+          }else{
+            $('#total.alert').removeClass('alert');
+          }
+        }
       });
       socket.on('change_max', function(max_obj){
         $('#total').text(max_obj.total);
@@ -99,8 +110,4 @@ $(function () {
         alert('copied to clipboard');
       })
   }
-  $('#toggle-modal, .close').click(function(){
-    $('.modal').toggleClass('visible');
-    return false;
-  });
 });
