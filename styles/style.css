@@ -1,127 +1,212 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Rokkitt', serif;
-
-
-  font-size:16px;
+  font-size: 16px;
   background:
-    radial-gradient(circle farthest-side at 0% 50%,#fff 23.5%,rgba(240,166,17,0) 0)21px 30px,
-    radial-gradient(circle farthest-side at 0% 50%,#dbdbdb 24%,rgba(240,166,17,0) 0)19px 30px,
-    linear-gradient(#fff 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#fff 0)0 0,
-    linear-gradient(150deg,#fff 24%,#dbdbdb 0,#dbdbdb 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#dbdbdb 0,#dbdbdb 76%,#fff 0)0 0,
-    linear-gradient(30deg,#fff 24%,#dbdbdb 0,#dbdbdb 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#dbdbdb 0,#dbdbdb 76%,#fff 0)0 0,
-    linear-gradient(90deg,#dbdbdb 2%,#fff 0,#fff 98%,#dbdbdb 0%)0 0 #fff;
-    background-size: 40px 60px;
- }
- h1{
-   font-weight: bold;
-   text-transform: uppercase;
-   font-size:2.5em;
-   text-align: center;
-   line-height: 1.2;
- }
- p{
-   font-family: 'PT Sans', sans-serif;
-   font-weight: bold;
- }
+    radial-gradient(circle farthest-side at 0% 50%, #fff 23.5%, rgba(240, 166, 17, 0) 0)21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%, #dbdbdb 24%, rgba(240, 166, 17, 0) 0)19px 30px,
+    linear-gradient(#fff 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #fff 0)0 0,
+    linear-gradient(150deg, #fff 24%, #dbdbdb 0, #dbdbdb 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #dbdbdb 0, #dbdbdb 76%, #fff 0)0 0,
+    linear-gradient(30deg, #fff 24%, #dbdbdb 0, #dbdbdb 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #dbdbdb 0, #dbdbdb 76%, #fff 0)0 0,
+    linear-gradient(90deg, #dbdbdb 2%, #fff 0, #fff 98%, #dbdbdb 0%)0 0 #fff;
+  background-size: 40px 60px;
+}
+/*------------- Font  Styles ---------------*/
 
-form input { text-align:center; text-transform: uppercase;font-family: 'Rokkitt', serif;border: 2px solid #000; padding: 10px; width: 90%; max-width:250px;  display: block; margin: 10px auto; font-size:18px;}
-form button {font-family: 'Rokkitt', serif;  font-weight: bold; font-size:28px;background: #0D8AAB;  color:#fff;border: none; margin:30px auto; display:block; padding: 10px 80px; border-radius: 30px;}
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
-#messages { margin-bottom: 40px }
-.hidden{display:none;}
-label{
-  color:#fff;
-}
-.alert{
-  color:#ff5000;
-}
-.content{
-  width:100%;
-  padding:20px;
-  max-width:1200px;
-  margin:auto;
-  background-color:rgba(255,255,255,0.5);
-}
-
-#total{
-  font-size:50px;
+h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2.5em;
   text-align: center;
-  color:
+  line-height: 1.2;
 }
-.loading-screen{
-  width:100%;
+
+h3{
+  font-size:1.5em;
+}
+
+p {
+  font-family: 'Rokkitt', serif;
+  font-weight: bold;
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+sub{
+  color:#495672;
+  margin-bottom:10px;
+  display: block;
+}
+
+.title {
+  padding:10px 20px;
+  background-color: #FFD067;
+  border: 1px solid #000;
+  display: block;
+  text-align: center;
+  width: 165px;
+  margin: -50px auto 20px;
+  position: relative;
+}
+
+.alert {
+  color: #ff5000;
+}
+
+.blue {
+  border-color: transparent;
+  height:4px;
+  background-color:#0D8AAB;
+  margin:30px auto;
+}
+
+/*------------- Form  Styles ---------------*/
+
+form input {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Rokkitt', serif;
+  border: 2px solid #000;
+  padding: 10px;
+  width: 90%;
+  max-width: 280px;
+  display: block;
+  margin: 10px auto;
+  font-size: 16px;
+}
+
+form button {
+  font-family: 'Rokkitt', serif;
+  font-weight: bold;
+  font-size: 18px;
+  background: #0D8AAB;
+  color: #fff;
+  border: none;
+  margin: 30px auto;
+  display: block;
+  width: 90%;
+  max-width: 280px;
+  padding: 10px 0;
+  border-radius: 30px;
+}
+
+label {
+  color: #495672;
+  font-size:28px;
+  text-align: center;
+  display:block;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+#max-oc{
+  background-color: transparent;
+  border:0;
+  font-size: 28px;
+}
+
+/*------------- Content  Styles ---------------*/
+
+.content {
+  width: 100%;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#total {
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.loading-screen {
+  width: 100%;
   height: 100%;
   position: fixed;
-  top:0;
-  left:0;
-  background-color:rgb(130, 224, 255);
+  top: 0;
+  left: 0;
+  background-color: rgb(130, 224, 255);
   transition-delay: 1s;
   transition: opacity 300ms ease;
   z-index: 999;
 }
-.loader{
+
+.loader {
   position: absolute;
-  top:50%;
-  left:50%;
-  tramsform:translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  tramsform: translate(-50%, -50%);
 }
-.loaded .loading-screen{
+
+.loaded .loading-screen {
   transition-delay: 1s;
   opacity: 0;
   pointer-events: none;
 }
-.main{
+
+.main {
   pointer-events: all;
 }
-
 
 /* Modal Content/Box */
 .card {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 50px auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
   position: relative;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  position: absolute;
-  top:10px;
-  right:20px;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.add-space{
-  width:600px;
-  height:150px;
-  margin:20px auto;
-  background-color:#000;
-}
-
-.title{
-  padding:20px;
-  background-color:#FFD067;
-  border:1px solid #000;
-  display: block;
+.center-card{
   text-align: center;
-  width:165px;
-  margin:-60px auto 20px;
-  position: relative;
 }
-.blue{
-  border-color:#0D8AAB;
+
+.add-space {
+  width: 600px;
+  height: 150px;
+  margin: 20px auto;
+  background-color: #000;
+}
+#footer{
+  background-color:#fff;
+  padding:40px 0;
+  border-top:1px solid #000;
+  font-family: 'PT Sans', sans-serif;
+  color:#495672;
+}
+#footer p{
+  font-family: 'PT Sans', sans-serif;
+}
+
+.room-info{
+  display: inline-block;
+}
+.room-row{
+  display: block;
+}
+svg{
+  max-width: 100%;
+  max-height: 100%;
+}
+.clipboard{
+  width:40px;
+  height:40px;
+  display: inline-block;
+  padding:5px;
+  background-color:#fff;
+  border-radius:50%;
+  cursor: pointer;
 }
