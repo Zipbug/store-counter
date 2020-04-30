@@ -2,7 +2,7 @@ $(function () {
   var $location = new URL(window.location).searchParams.get("i");
   var socket = io();
   console.log(window.location);
-  new QRCode(document.getElementById("qrcode"), window.location);
+
   checkCookie();
 
 
@@ -73,6 +73,7 @@ $(function () {
     $('#total').text(parseInt(data.total));
     $('#max-oc').val(parseInt(data.max));
     $('.room-count').removeClass('hidden');
+    new QRCode(document.getElementById("qrcode"), 'http://occupancy.commandercoding.com/room/?i=' + $location+ '&p=' + data.password);
   }
 
   $('.copy-link').click(function(){
@@ -97,22 +98,25 @@ $(function () {
   }
 
 
-  function loadRoom(data){
-    socket.emit('join', data);
+  function loadRoom($data){
+    socket.emit('join', $data);
     socket.on('exception', function(message){
       $('.main').prepend('<div class="error-massage">'+message.errorMessage+'</div>');
     });
-    socket.on('join', function(response){
-      JoinRoom($location, response);
+    socket.on('join', function($response){
+      JoinRoom($location, $response);
     });
   }
   function checkCookie(){
-    var cookie = getCookie('room_data');
-    if(cookie){
-      var room_data = JSON.parse(cookie);
-      if(room_data){
-        loadRoom(room_data);
+    var $cookie = getCookie('room_data');
+    var $p =  new URL(window.location).searchParams.get("p");
+    if($cookie){
+      var $room_data = JSON.parse($cookie);
+      if($room_data){
+        loadRoom($room_data);
       }
+    }else if(p){
+      loadRoom({'room': $location, 'password': $p});
     }
     $('body').addClass('loaded');
   }
