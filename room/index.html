@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165010921-1"></script>
@@ -23,9 +23,12 @@
 
     <!-- CSS
     ================================================== -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Rokkitt:wght@200;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/loaders.css">
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" href="styles/loaders.css">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
@@ -34,18 +37,46 @@
     <!-- Favicons
     ================================================== -->
   </head>
-  <body>
+  <body >
     <div class="loading-screen">
       <div class="loader"><div class="pacman"><div></div><div></div><div></div><div></div><div></div></div></div>
     </div>
+    <div class="bmd-layout-container bmd-drawer-f-l">
+      <header class="bmd-layout-header">
+        <div class="navbar navbar-light bg-faded">
+          <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+            <span class="sr-only">Toggle drawer</span>
+            <i class="material-icons">menu</i>
+          </button>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">Occupancy</li>
+          </ul>
+        </div>
+      </header>
+      <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+        <header>
+          <a class="navbar-brand">Occupancy</a>
+        </header>
+        <ul class="list-group">
+          <a class="list-group-item">Start a room</a>
+          <a class="list-group-item">Key Features</a>
+          <a class="list-group-item">How Can I Help?</a>
+          <a class="list-group-item">About</a>
+        </ul>
+      </div>
+      <main class="bmd-layout-content">
+        <div class="container">
+
     <section class="content">
-      <h1><a href="http://occupancy.commandercoding.com/">Occupancy<br> App</a></h1>
+
       <div class="main">
         <!---- password Form ----->
         <form id="pass">
-          <label for="password">Password</label>
-          <input type="text" class="password" placeholder="password"></input>
-          <button type="submit">Join</button>
+          <div class="form-group">
+            <label for="password" class="bmd-label-floating">Password</label>
+            <input type="text" class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn-raised btn-primary">Join</button>
         </form>
         <!---- Room Forms ----->
         <div class="room-count hidden">
@@ -53,16 +84,18 @@
             <span id="total">0</span><sub>Current Occupancy</sub>
           </h4>
           <form id="max">
-            <input id="max-oc" value="0"></input>
-            <sub class="center-card">Max Occupancy</sub>
-            <button type="submit" class="max-submit hidden">Update</button>
+            <div class="form-group">
+              <label for="max-oc" class="bmd-label-floating">Max Occupancy</label>
+              <input type="text" class="form-control" id="max-oc">
+            </div>
+            <button type="submit" class="max-submit btn btn-raised btn-primary">Update</button>
           </form>
           <div class=pm_container>
             <form id="p" >
-              <button class="plus" type="submit">+1</button>
+              <button class="btn btn-secondary bmd-btn-fab" type="submit">+1</button>
             </form>
             <form id="m" >
-              <button class="minus" type="submit">-1</button>
+              <button class="btn btn-secondary bmd-btn-fab" type="submit">-1</button>
             </form>
           </div>
           <div class="clearfix"></div>
@@ -108,6 +141,9 @@
           <p>Best of all, Free to use</p>
       </div>
     </section>
+  </div>
+</main>
+</div.
     <footer id="footer" name="footer">
       <div class="content">
         <h3>Why Ads?</h3>

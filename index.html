@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165010921-1"></script>
@@ -23,7 +23,10 @@
 
     <!-- CSS
     ================================================== -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Rokkitt:wght@200;500&display=swap" rel="stylesheet">
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" href="styles/loaders.css">
     <!--[if lt IE 9]>
@@ -34,46 +37,92 @@
     <!-- Favicons
     ================================================== -->
   </head>
-  <body>
-    <section class="content">
-      <h1><a href="http://occupancy.commandercoding.com/">Occupancy<br> App</a></h1>
-      <div class="main">
-        <form id="room">
-          <input type="text" class="total" placeholder="Starting Occupancy"></input>
-          <input type="text" class="max-oc" placeholder="Max Occupancy"></input>
-          <button type="submit">Let's Go!</button>
-        </form>
+  <body >
+
+    <div class="bmd-layout-container bmd-drawer-f-l">
+      <header class="bmd-layout-header">
+        <div class="navbar navbar-light bg-faded">
+          <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+            <span class="sr-only">Toggle drawer</span>
+            <i class="material-icons">menu</i>
+          </button>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">Occupancy</li>
+          </ul>
+        </div>
+      </header>
+      <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+        <header>
+          <a class="navbar-brand">Occupancy</a>
+        </header>
+        <ul class="list-group">
+          <a class="list-group-item">Start a room</a>
+          <a class="list-group-item">Key Features</a>
+          <a class="list-group-item">How Can I Help?</a>
+          <a class="list-group-item">About</a>
+        </ul>
       </div>
-      <a href="#footer" id="toggle-modal">Why ads?</a>
-      <div class="add-space"></div>
-      <div class="card">
-        <h2 class="title">WHY?</h2>
-        <p>Quarantine restrictions are starting to loosen up around the world, but health officials are emphasizing the need to keep social distancing practices in place.</p>
-        <br>
-        <p>Limiting the number of customers you allow into your store can help keep minimal distance.</p>
-        <br>
-        <p>We’re happy to offer this simple, free solution.</p>
-      </div>
-      <div class="add-space"></div>
-      <a href="#footer" id="toggle-modal">Why ads?</a>
-      <div class="card center-card">
-        <h2 class="title">Features</h3>
-          <p>Instantly keep track of how many customers are in your store.</p>
-          <hr class="blue">
-          <p>Works with single or multiple store entrances*</p>
-          <sub>*multiple employees can update the same counter and be in sync with other devices synced to the same store code.</sub>
-          <br/>
-          <p>Works on any smart device*</p>
-          <sub>*Internet access required.</sub>
-          <hr class="blue">
-          <p>Private*</p>
-          <sub>*Even the store count is a temporary number that gets wiped regularly, but even then it's tied to a random counter number that was generated when the room was created. No personallly identifiable information is ever used.</sub>
-          <br/>
-          <sub>*3rd Party advertisments privacy policyes fall under their terms of use.</sub>
-          <hr class="blue">
-          <p>Best of all, Free to use</p>
-      </div>
-    </section>
+      <main class="bmd-layout-content">
+        <div class="container">
+          <form id="room">
+            <div class="form-group">
+              <label for="starting_oc" class="bmd-label-floating">Starting Occupancy</label>
+              <input type="text" class="form-control" id="starting_oc">
+            </div>
+            <div class="form-group">
+              <label for="max_oc" class="bmd-label-floating">Max Occupancy</label>
+              <input type="text" class="form-control" id="max_oc">
+            </div>
+            <div class="form-group">
+              <label for="password" class="bmd-label-floating">Password</label>
+              <input type="text" class="form-control" id="password">
+            </div>
+            <button class="btn btn-raised btn-primary">
+                Let's Go!
+            </button>
+          </form>
+            <a href="#footer" id="toggle-modal">Why ads?</a>
+            <div class="add-space"></div>
+            <div >
+              <h2>Wait, it’s a What??</h2>
+              <p>As quarantine restrictions are starting to loosen up around the world, health officials are emphasizing the need to keep social distancing practices in place.</p>
+
+              <p>One of the things that can help is limiting the number of people you allow into your space as it helps keep the needed minimal distance requirements in place to keep everyone safe.</p>
+
+              <p>We saw the need for a simple solution that could help everyone, and with our skillset, we wanted to help.</p>
+
+              <p>So we created an easy to use, multi-client counter.  Start up a space and start keeping tally of people as they come and go.  Receive instant feedback on whether you’re at the maximum occupancy you’ve set for your space.  </p>
+
+              <p>We don’t collect any personal data or store anything long term.  This app is free to use, and we’re going to keep it that way.</p>
+
+              <p>Start up a space now and see how it works.</p>
+              <p>If you want to know more about the details, feel free to keep on reading.
+            </div>
+            <div class="add-space"></div>
+            <a href="#footer" id="toggle-modal">Why ads?</a>
+            <div class="card center-card">
+              <h2 class="title">Features</h3>
+                <p>Instantly keep track of how many customers are in your store.</p>
+                <hr class="blue">
+                <p>Works with single or multiple store entrances*</p>
+                <sub>*multiple employees can update the same counter and be in sync with other devices synced to the same store code.</sub>
+                <br/>
+                <p>Works on any smart device*</p>
+                <sub>*Internet access required.</sub>
+                <hr class="blue">
+                <p>Private*</p>
+                <sub>*Even the store count is a temporary number that gets wiped regularly, but even then it's tied to a random counter number that was generated when the room was created. No personallly identifiable information is ever used.</sub>
+                <br/>
+                <sub>*3rd Party advertisments privacy policyes fall under their terms of use.</sub>
+                <hr class="blue">
+                <p>Best of all, Free to use</p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+</div>
+    <section
     <footer id="footer" name="footer">
       <div class="content">
         <h3>Why Ads?</h3>
@@ -85,9 +134,13 @@
         <div class="social-icons"></div>
       </div>
     </footer>
-
+    </div>
+  </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
     <script src="js/main.js"></script>
   </body>
 </html>

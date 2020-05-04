@@ -116,7 +116,9 @@ $(function () {
     if($cookie){
       var $room_data = JSON.parse($cookie);
       if($room_data){
-        loadRoom($room_data);
+        if($room_data.password){
+          loadRoom($room_data);
+        }
       }
     }else if(p){
       loadRoom({'room': $location, 'password': $p});
