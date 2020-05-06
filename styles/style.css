@@ -10,3 +10,59 @@ html, body{
 #qrcode img{
   margin:auto;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+  color: #008466;
+}
+
+h4 {
+  color: rgba(0,0,0,0.6);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+
+p {
+  color: rgba(0,0,0,0.6);
+}
+
+hr {
+  border-top: 4px solid #008466;
+  margin-top:.5rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bg-color {
+  background-color: #008466;
+}
+
+.center {
+  text-align: center;
+}
+
+.sub-text {
+  color: #008466;
+  font-size: 12px;
+}
+
+.material-icons, header {
+  color: white;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.btn-engage {
+  background-color: #008466;
+  border-color: #008466;
+  color: white;
+  min-width: 120px;
+}

@@ -15,4 +15,16 @@ $(function () {
     window.location.href = $new_url;
     return false;
   });
+
+  $('#addPassword').click(function(){
+    $('#password-group').removeClass("d-none");
+    $('#removePassword').removeClass("d-none");
+    $('#addPassword').addClass("d-none");
+  });
+
+  $('#removePassword').click(function(){
+    $('#password-group').addClass("d-none");
+    $('#removePassword').addClass("d-none");
+    $('#addPassword').removeClass("d-none");
+  });
 });
