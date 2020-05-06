@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <link rel="stylesheet" href="styles/loaders.css">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -58,61 +58,45 @@
           <a class="navbar-brand">Occupancy</a>
         </header>
         <ul class="list-group">
-          <a href="/about" class="list-group-item">Start a Space</a>
+          <a class="list-group-item">Start a Space</a>
           <a class="list-group-item">Key Features</a>
           <a class="list-group-item">How Can I Help?</a>
           <a class="list-group-item">About</a>
         </ul>
       </div>
       <main class="bmd-layout-content">
-        <div class="jumbotron">
-          <h1>
-            Hero Goes Here
-          </h1>
-        </div>
         <div class="container">
-          <div id="top-anchor">
-            <p><span style="color:#008466;">Occupancy</span> is a free-to-use, multi-endpoint counter to keep track of how many people you have in your store, restaurant, spaceship, etc…<br><br>No matter how many entries/exits you have</p>
-            <p class="bold">Start up a space now to see how it works</p>
-          </div>
-          <div class="">
-            <form id="room">
-              <div class="form-group">
-                <label for="starting_oc" class="bmd-label-floating">Starting Occupancy</label>
-                <input type="text" class="form-control" id="starting_oc">
-              </div>
-              <div class="form-group">
-                <label for="max_oc" class="bmd-label-floating">Max Occupancy</label>
-                <input type="text" class="form-control" id="max_oc">
-              </div>
-              <div class="form-group d-none" id="password-group">
-                <label for="password" class="bmd-label-floating">Password</label>
-                <input type="text" class="form-control" id="password">
-              </div>
-              <br>
-              <div class="center">
-                <button class="btn btn-raised btn-engage">
-                    Engage!
-                </button>
-                <p class="sub-text" id="addPassword">Add Password</p>
-                <p class="sub-text d-none" id="removePassword">Remove Password</p>
-              </div>
-            </form>
-          </div>
+          <br>
           <br>
           <div>
-            <h3>Wait, it’s a What?</h3>
+            <h3>About Occupancy</h3>
             <hr>
-            <p>As quarantine restrictions are starting to loosen up around the world, health officials are emphasizing the need to keep social distancing practices in place.</p>
-            <p>One of the things that can help is limiting the number of people you allow into your space as it helps keep the needed minimal distance requirements in place to <span style="color:#008466;">keep everyone safe.</span></p>
-            <p>We saw the need for a simple solution that could help everyone, and with our skillset, <span style="color:#008466;">we wanted to help.</span></p>
-            <p>So we created an easy to use, multi-client counter.  Start up a space and start keeping tally of people as they come and go.  Receive <span style="color:#008466;">instant feedback </span>on whether you’re at the maximum occupancy you’ve set for your space.  </p>
-            <p><span style="color:#008466;">We don’t collect any personal data</span> or store anything long term.  This app is free to use, and we’re going to keep it that way.</p>
-            <p>Start up a space now and see how it works.  If you want to know more about the details, feel free to keep on reading.</p>
-            <div class="center">
-              <a href="#top-anchor"><button class="btn btn-raised btn-engage">
-                  Start a Space Now
-              </button></a>
+            <p><span style="color:#008466;">Occupancy</span> was created by zipbugdev and Commander Coding.</p>
+            <p>Web Developers by trade, we wanted to use our skillset to help in our own little way with the recent events happening around the world.</p>
+            <p>Need to get in touch? Drop us a line using the form below.</p>
+            <div class="">
+              <form id="contact">
+                <div class="form-group">
+                  <label for="email" class="bmd-label-floating">Email</label>
+                  <input type="text" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="message" class="bmd-label-floating">Message</label>
+                  <input type="textarea" class="form-control" id="message">
+                </div>
+                <div class="form-group d-none">
+                  <label for="em2" class="bmd-label-floating">Email</label>
+                  <input type="text" class="form-control" id="em2">
+                </div>
+                <br>
+                <div class="center">
+                  <button class="btn btn-raised btn-engage">
+                      Engage!
+                  </button>
+                  <p class="sub-text" id="addPassword">Add Password</p>
+                  <p class="sub-text d-none" id="removePassword">Remove Password</p>
+                </div>
+              </form>
             </div>
           </div>
           <br>
