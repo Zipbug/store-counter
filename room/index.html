@@ -10,6 +10,7 @@
 
       gtag('config', 'UA-165010921-1');
     </script>
+    <script src="https://kit.fontawesome.com/199867d2e2.js" crossorigin="anonymous"></script>
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
@@ -27,8 +28,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" href="styles/loaders.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/loaders.css">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
@@ -37,128 +38,148 @@
     <!-- Favicons
     ================================================== -->
   </head>
-  <body >
-    <div class="loading-screen">
-      <div class="loader"><div class="pacman"><div></div><div></div><div></div><div></div><div></div></div></div>
-    </div>
-    <div class="bmd-layout-container bmd-drawer-f-l">
+  <body>
+    <div id="nav-drawer" class="bmd-layout-container bmd-drawer-f-l">
       <header class="bmd-layout-header">
-        <div class="navbar navbar-light bg-faded">
+        <div class="navbar navbar-light bg-color">
           <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
             <span class="sr-only">Toggle drawer</span>
             <i class="material-icons">menu</i>
           </button>
-          <ul class="nav navbar-nav">
-            <li class="nav-item">Occupancy</li>
-          </ul>
+          <div class="nav-center">
+            <ul class="nav navbar-nav">
+              <a class="nav-color" href="/"><li class="nav-item">Occupancy</li></a>
+            </ul>
+          </div>
         </div>
       </header>
       <div id="dw-s1" class="bmd-layout-drawer bg-faded">
         <header>
-          <a class="navbar-brand">Occupancy</a>
+          <a class="navbar-brand" style="color:#008466 !important;"><img class="logo-icon" src="https://commandercodingpublic.s3-us-west-2.amazonaws.com/logo_idea.png">&nbsp;Occupancy</a>
         </header>
-        <ul class="list-group">
-          <a class="list-group-item">Start a room</a>
-          <a class="list-group-item">Key Features</a>
-          <a class="list-group-item">How Can I Help?</a>
-          <a class="list-group-item">About</a>
+        <ul class="list-group nav-links">
+          <a href="/" class="list-group-item">Start a Space</a>
+          <a href="/#footer" class="list-group-item">How Can I Help?</a>
+          <a href="/about" class="list-group-item">About</a>
         </ul>
       </div>
       <main class="bmd-layout-content">
-        <div class="container">
-
-    <section class="content">
-
-      <div class="main">
-        <!---- password Form ----->
-        <form id="pass">
-          <div class="form-group">
-            <label for="password" class="bmd-label-floating">Password</label>
-            <input type="text" class="form-control" id="password">
-          </div>
-          <button type="submit" class="btn btn-raised btn-primary">Join</button>
-        </form>
-        <!---- Room Forms ----->
-        <div class="room-count hidden">
-          <h4 class="center-card">
-            <span id="total">0</span><sub>Current Occupancy</sub>
-          </h4>
-          <form id="max">
-            <div class="form-group">
-              <label for="max-oc" class="bmd-label-floating">Max Occupancy</label>
-              <input type="text" class="form-control" id="max-oc">
-            </div>
-            <button type="submit" class="max-submit btn btn-raised btn-primary">Update</button>
-          </form>
-          <div class=pm_container>
-            <form id="p" >
-              <button class="btn btn-secondary bmd-btn-fab" type="submit">+1</button>
-            </form>
-            <form id="m" >
-              <button class="btn btn-secondary bmd-btn-fab" type="submit">-1</button>
-            </form>
-          </div>
-          <div class="clearfix"></div>
-          <div id="qrcode" class="hidden"></div>
-          <div class="toggle_qr">Show QR Code</div>
-          <div class="copy-link">
-            <div class="clipboard"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="clipboard" x="0px" y="0px" width="780.974px" height="780.975px" viewBox="0 0 780.974 780.975" style="enable-background:new 0 0 780.974 780.975;" xml:space="preserve"><path d="M615.062,780.975h-449.16c-30.167,0-54.709-24.543-54.709-54.709V116.704c0-30.167,24.542-54.709,54.709-54.709h147.482     v42.362h153.205V61.995h148.473c30.171,0,54.719,24.542,54.72,54.708v609.563C669.782,756.432,645.235,780.975,615.062,780.975z      M165.902,81.79c-19.252,0-34.915,15.662-34.915,34.914v609.562c0,19.252,15.663,34.914,34.915,34.914h449.16     c19.258,0,34.925-15.662,34.925-34.914V116.704c-0.001-19.251-15.668-34.914-34.925-34.914H486.385v42.362H293.59V81.79H165.902z"/><path d="M458.665,92.139H321.309V28.937h40.981v-1.135C362.291,12.472,374.763,0,390.094,0h0.359     c15.33,0,27.803,12.472,27.803,27.802v1.135h40.407L458.665,92.139L458.665,92.139z M341.104,72.344h97.766V48.732h-40.407     v-20.93c0-4.415-3.592-8.007-8.008-8.007h-0.359c-4.416,0-8.009,3.592-8.009,8.007v20.93h-40.981L341.104,72.344L341.104,72.344z"/></svg></div>
-            Copy Link
-          </div>
-          <div class="copy-pass">
-            <div class="clipboard"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="clipboard" x="0px" y="0px" width="780.974px" height="780.975px" viewBox="0 0 780.974 780.975" style="enable-background:new 0 0 780.974 780.975;" xml:space="preserve"><path d="M615.062,780.975h-449.16c-30.167,0-54.709-24.543-54.709-54.709V116.704c0-30.167,24.542-54.709,54.709-54.709h147.482     v42.362h153.205V61.995h148.473c30.171,0,54.719,24.542,54.72,54.708v609.563C669.782,756.432,645.235,780.975,615.062,780.975z      M165.902,81.79c-19.252,0-34.915,15.662-34.915,34.914v609.562c0,19.252,15.663,34.914,34.915,34.914h449.16     c19.258,0,34.925-15.662,34.925-34.914V116.704c-0.001-19.251-15.668-34.914-34.925-34.914H486.385v42.362H293.59V81.79H165.902z"/><path d="M458.665,92.139H321.309V28.937h40.981v-1.135C362.291,12.472,374.763,0,390.094,0h0.359     c15.33,0,27.803,12.472,27.803,27.802v1.135h40.407L458.665,92.139L458.665,92.139z M341.104,72.344h97.766V48.732h-40.407     v-20.93c0-4.415-3.592-8.007-8.008-8.007h-0.359c-4.416,0-8.009,3.592-8.009,8.007v20.93h-40.981L341.104,72.344L341.104,72.344z"/></svg></div>
-          Copy Password</div>
+        <div id="link-copied" class="center invisible">
           <br>
+          <span class="btn btn-outline-success">Link Copied to clipboard</span>
         </div>
-      </div>
-      <a href="#footer" id="toggle-modal">Why ads?</a>
-      <div class="add-space"></div>
-      <div class="card">
-        <h2 class="title">WHY?</h2>
-        <p>Quarantine restrictions are starting to loosen up around the world, but health officials are emphasizing the need to keep social distancing practices in place.</p>
-        <br>
-        <p>Limiting the number of customers you allow into your store can help keep minimal distance.</p>
-        <br>
-        <p>We’re happy to offer this simple, free solution.</p>
-      </div>
-      <div class="add-space"></div>
-      <a href="#footer" id="toggle-modal">Why ads?</a>
-      <div class="card center-card">
-        <h2 class="title">Features</h3>
-          <p>Instantly keep track of how many customers are in your store.</p>
-          <hr class="blue">
-          <p>Works with single or multiple store entrances*</p>
-          <sub>*multiple employees can update the same counter and be in sync with other devices synced to the same store code.</sub>
-          <br/>
-          <p>Works on any smart device*</p>
-          <sub>*Internet access required.</sub>
-          <hr class="blue">
-          <p>Private*</p>
-          <sub>*Even the store count is a temporary number that gets wiped regularly, but even then it's tied to a random counter number that was generated when the room was created. No personallly identifiable information is ever used.</sub>
-          <br/>
-          <sub>*3rd Party advertisments privacy policyes fall under their terms of use.</sub>
-          <hr class="blue">
-          <p>Best of all, Free to use</p>
-      </div>
-    </section>
-  </div>
-</main>
-</div.
+        <div class="container">
+          <section class="content">
+            <div class="main">
+              <div class="room-count hidden">
+                <div class="row center mx-3 no-gutters">
+                  <div class="col">
+                    <span id="current" class="space-value">0</span>
+                    <p>Current Occupancy</p>
+                    <br>
+                    <div>
+                      <span id="max" class="space-value">25</span>
+                    </div>
+                    <p>Max Occupancy &nbsp;&nbsp;<i id="edit-max" class="fas fa-edit mx-0 green-icon"></i></p>
+                  </div>
+                  <div class="col">
+                    <br>
+                    <form id="p" >
+                      <button class="btn btn-plus bmd-btn-fab btn-space" type="submit"><span style="font-size:40px; vertical-align:bottom;">+</span></button>
+                    </form>
+                    <br><br>
+                    <form id="m" >
+                      <button class="btn btn-secondary bmd-btn-fab btn-space" type="submit"><span style="font-size:40px; vertical-align:bottom;">-</span></button>
+                    </form>
+                  </div>
+                </div>
+                <br><br>
+                <div>
+                  <div class="progress" style="height: 20px;">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="float-left">0%</p>
+                  <p class="float-right">100%</p>
+                  <div class="clearfix"></div>
+                </div>
+                <br>
+                <div class="right">
+                  <p>Copy / QR Code</p>
+                  <div>
+                    <a id="copy"><i class="far fa-copy fa-3x mr-3"></i></a><a id="toggle-qrcode"><i class="fas fa-qrcode fa-3x mr-0" data-toggle="modal" data-target="#qrmodal"></i></a>
+                  </div>
+                </div>
+                <br>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <br><br>
     <footer id="footer" name="footer">
-      <div class="content">
-        <h3>Why Ads?</h3>
-        <p>As much as we’d like to offer this service completely free, having ads and accepting donations helps keep our servers running.</p>
+      <div class="container">
+        <h3>Like What You See?</h3>
+        <hr>
+        <h4>Spread the Word</h4>
+        <p>Please help us get the work around by sharing on your social channels.</p>
+        <p>It’s a small thing, but we honestly feel this can help keep the world safer in it’s own small little way.</p>
         <br>
-        <h3>Donations</h3>
-        <p>Like what you see? Please consider donating through any of the servises below.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Foccupancyapp.com&amp;title=&amp;summary=&amp;source=https%3A%2F%2Foccupancyapp.com" target="_blank" rel="noopener"><i style="color:#0072b1;" class="fab fa-linkedin fa-3x"></i></a>
+          <a href="https://twitter.com/intent/tweet/?text=&amp;url=https%3A%2F%2Foccupancyapp.com" target="_blank" rel="noopener"><i style="color:#1DA1F2;" class="fab fa-twitter fa-3x"></i></a>
+          <a href="mailto:?subject=&amp;body=https%3A%2F%2Foccupancyapp.com" target="_self" rel="noopener"><i class="far fa-envelope fa-3x"></i></a>
+          <a href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Foccupancyapp.com" target="_blank" rel="noopener"><i style="color:#3b5998;" class="fab fa-facebook-square fa-3x"></i></a>
+        </div>
+        <br>
+        <br>
+        <h4>Donations</h4>
+        <p>Currently we’re funding this project out of pocket because we feel it’s worth it.  However, if you like it and want to support it, we definitely appreciate it.</p>
+        <p>Patreon</p>
         <a href="https://www.patreon.com/bePatron?u=34549934" data-patreon-widget-type="become-patron-button">Support us through Patreon</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-        <div class="social-icons"></div>
+        <br>
+        <p>Paypal / Credit Card</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="GEM5TYW423P8L" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+        <p>*Please note that we are not a charitable organization, any donations given are NOT tax deductible, but they do help us keep this service alive and make improvements to it.</p>
+
       </div>
+      <br><br>
     </footer>
 
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">QR Code</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="qrcode"></div>
+          </div>
+          <div class="modal-footer">
+            <p>This QR Code contains the URL for your space.  Have someone scan it if you want to give them edit access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="../js/qrcode.min.js"></script>
-    <script src="../js/room.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script src="/js/main.js"></script>
+    <script src="/js/room.js"></script>
+    <script src="/js/qrcode.min.js"></script>
   </body>
 </html>

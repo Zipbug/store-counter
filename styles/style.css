@@ -25,6 +25,27 @@ h4 {
   font-size: 20px;
 }
 
+.edit-icon {
+    position: absolute;
+    right:0;
+}
+
+.btn-space {
+  width: 5rem !important;
+  height: 5rem !important;
+}
+
+.space-value {
+    font-size: 65px;
+}
+
+.nav-links a {
+  color: rgba(0,0,0,0.6);
+}
+
+.nav-links a:hover {
+  color: #008466;
+}
 
 p {
   color: rgba(0,0,0,0.6);
@@ -52,12 +73,37 @@ i {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
+.green-icon {
+  color: #008466;
+}
+
+.logo-icon {
+  width:25px;
+  height:25px;
+  vertical-align: sub;
+}
+
 .sub-text {
   color: #008466;
   font-size: 12px;
 }
 
 .material-icons, header {
+  color: white;
+}
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-color {
   color: white;
 }
 
@@ -70,4 +116,13 @@ i {
   border-color: #008466;
   color: white;
   min-width: 120px;
+}
+
+.btn-plus {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.invisible {
+  visibility: hidden;
 }

@@ -27,4 +27,9 @@ $(function () {
     $('#removePassword').addClass("d-none");
     $('#addPassword').removeClass("d-none");
   });
+
+  $('.nav-links a').click(function(){
+    $('#nav-drawer').removeClass("bmd-drawer-in");
+  });
+
 });

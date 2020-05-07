@@ -101,7 +101,7 @@ $(function () {
 
 
   function loadRoom($data){
-    new QRCode(document.getElementById("qrcode"), 'http://occupancy.commandercoding.com/room/?i=' + $location+ '&p=' + $data.password);
+    new QRCode(document.getElementById("qrcode"), 'http://occupancy.commandercoding.com/room/?i=' + $location);
     socket.emit('join', $data);
     socket.on('exception', function(message){
       $('.main').prepend('<div class="error-massage">'+message.errorMessage+'</div>');
