@@ -60,6 +60,17 @@ i {
   margin: 0 45px 0 0;
 }
 
+.yellow {
+  background-color: #ffae42;
+}
+
+.red {
+  background-color: #ff0000 !important;
+}
+
+.red-text {
+  color: #ff0000;
+}
 
 .bold {
   font-weight: 600;

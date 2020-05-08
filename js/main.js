@@ -32,4 +32,41 @@ $(function () {
     $('#nav-drawer').removeClass("bmd-drawer-in");
   });
 
+  // Calculate Percentage for graph
+  $(function(){
+    var current = 0
+    var maximum = 25
+    var percentage = (current*100/maximum);
+    if (percentage >= 100) {
+      overCapacity();
+    } else if (percentage >= 80 && percentage <= 99.9) {
+      console.log("yup, I was called");
+      yellowWarning();
+    } else {
+      normalize();
+    }
+  });
+
+  //almost at capacity
+  $(function yellowWarning(){
+    $('#progress-bar').addClass("yellow");
+  });
+
+  //over capacity
+  $(function overCapacity(){
+    $('#progress-bar').addClass("red");
+    $('#current').addClass("red-text");
+    $('#nav-color').addClass("red");
+    $('#over-capacity').removeClass("d-none");
+  });
+
+  //back to normal
+  $(function normalize(){
+    $('#progress-bar').removeClass("red").removeClass("yellow");
+    $('#current').removeClass("red-text");
+    $('#nav-color').removeClass("red");
+    $('#over-capacity').addClass("d-none");
+  });
+
+
 });

@@ -21,7 +21,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Occupancy App</title>
+    <title>Space | Occupancy App</title>
     <meta name="description" content="In Person Store Counter">
     <meta name="author" content="Zipbugdev">
 
@@ -48,7 +48,7 @@
   <body>
     <div id="nav-drawer" class="bmd-layout-container bmd-drawer-f-l">
       <header class="bmd-layout-header">
-        <div class="navbar navbar-light bg-color">
+        <div id="nav-color" class="navbar navbar-light bg-color">
           <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
             <span class="sr-only">Toggle drawer</span>
             <i class="material-icons">menu</i>
@@ -66,6 +66,7 @@
         </header>
         <ul class="list-group nav-links">
           <a href="/" class="list-group-item">Start a Space</a>
+          <a href="/join" class="list-group-item">Join an Existing Space</a>
           <a href="/#footer" class="list-group-item">How Can I Help?</a>
           <a href="/about" class="list-group-item">About</a>
         </ul>
@@ -75,19 +76,23 @@
           <br>
           <span class="btn btn-outline-success">Link Copied to clipboard</span>
         </div>
+        <div id="over-capacity" class="center d-none">
+          <br>
+          <p class="red-text">Currently Over Maximum Capacity!</p>
+        </div>
         <div class="container">
           <section class="content">
             <div class="main">
               <div class="room-count hidden">
                 <div class="row center mx-3 no-gutters">
                   <div class="col">
-                    <span id="current" class="space-value">0</span>
+                    <span id="current" class="space-value">25</span>
                     <p>Current Occupancy</p>
                     <br>
                     <div>
-                      <span id="max" class="space-value">25</span>
+                      <span id="max" class="space-value">100</span>
                     </div>
-                    <p>Max Occupancy &nbsp;&nbsp;<i id="edit-max" class="fas fa-edit mx-0 green-icon"></i></p>
+                    <p>Max Occupancy &nbsp;&nbsp;<i id="edit-max" class="fas fa-edit mx-0 green-icon" data-toggle="modal" data-target="#max-change"></i></p>
                   </div>
                   <div class="col">
                     <br>
@@ -129,7 +134,7 @@
         <h3>Like What You See?</h3>
         <hr>
         <h4>Spread the Word</h4>
-        <p>Please help us get the work around by sharing on your social channels.</p>
+        <p>Please help us get the word around by sharing on your social channels.</p>
         <p>It’s a small thing, but we honestly feel this can help keep the world safer in it’s own small little way.</p>
         <br>
         <div class="social-icons">
@@ -173,6 +178,34 @@
           </div>
           <div class="modal-footer">
             <p>This QR Code contains the URL for your space.  Have someone scan it if you want to give them edit access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Max Capacity Modal -->
+    <div class="modal" id="max-change" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Enter New Max Capacity</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="max-value-form">
+              <div class="form-group">
+                <label for="message" class="bmd-label-floating">Maximum Capacity</label>
+                <input type="textarea" class="form-control" id="max-value">
+              </div>
+              <br>
+              <div class="center">
+                <button class="btn btn-raised btn-engage">
+                    Update
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
