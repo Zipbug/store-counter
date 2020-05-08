@@ -1,5 +1,6 @@
 $(function () {
   var $location = new URL(window.location).searchParams.get("i");
+  var $pass = new URL(window.location).searchParams.get("p");
   var socket = io();
 
   checkCookie();
