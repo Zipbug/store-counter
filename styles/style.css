@@ -60,17 +60,6 @@ i {
   margin: 0 45px 0 0;
 }
 
-.jumbotron image{
-  /* background-image: url(/occupancy_promo_sized.png);
-  background-size: cover;
-  border-radius: 0; */
-  max-width:100%;
-}
-
-.hero_image {
-    max-width: 100%;
-}
-
 .yellow {
   background-color: #ffae42;
 }
@@ -147,4 +136,15 @@ i {
 
 .invisible {
   visibility: hidden;
+}
+#current-total{
+  position: absolute;
+  left:101%;
+  top:50%;
+  transform:translateX(-50%);
+  opacity: 1;
+  transition:opacity 300ms ease;
+}
+.hidden{
+  opacity:0;
 }

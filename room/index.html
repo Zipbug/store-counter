@@ -86,18 +86,22 @@
               <div class="room-count hidden">
                 <div class="row center mx-3 no-gutters">
                   <div class="col">
-                    <span id="current" class="space-value">25</span>
+                    <span id="current" class="space-value"></span>
                     <p>Current Occupancy</p>
                     <br>
                     <div>
-                      <span id="max" class="space-value">100</span>
+                      <span id="max" class="space-value"></span>
                     </div>
                     <p>Max Occupancy &nbsp;&nbsp;<i id="edit-max" class="fas fa-edit mx-0 green-icon" data-toggle="modal" data-target="#max-change"></i></p>
                   </div>
                   <div class="col">
+                    <div id="current-total" class="hidden"></div>
                     <br>
                     <form id="p" >
-                      <button class="btn btn-plus bmd-btn-fab btn-space" type="submit"><span style="font-size:40px; vertical-align:bottom;">+</span></button>
+                      <button class="btn btn-plus bmd-btn-fab btn-space" type="submit">
+
+                        <span style="font-size:40px; vertical-align:bottom;">+</span>
+                      </button>
                     </form>
                     <br><br>
                     <form id="m" >
@@ -108,7 +112,7 @@
                 <br><br>
                 <div>
                   <div class="progress" style="height: 20px;">
-                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <p class="float-left">0%</p>
                   <p class="float-right">100%</p>
@@ -212,14 +216,12 @@
     </div>
 
 
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
     <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
     <script src="/js/main.js"></script>
-    <script src="/js/room.js"></script>
     <script src="/js/qrcode.min.js"></script>
   </body>
 </html>
