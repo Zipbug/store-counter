@@ -67,6 +67,10 @@ i {
   max-width:100%;
 }
 
+.container {
+  max-width: 728px;
+}
+
 .hero_image {
     max-width: 100%;
 }
