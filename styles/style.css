@@ -70,9 +70,21 @@ i {
 .container {
   max-width: 728px;
 }
-
+.hero-header{
+  width:100%;
+  max-width: 1200px;
+  margin:auto;
+  height:50vh;
+  background-image:url('../occupancy_promo_sized.png');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .hero_image {
-    max-width: 100%;
+  max-width: 1200px;
+  margin:auto;
+  max-height:600px;
+  display: block;
 }
 
 .yellow {

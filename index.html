@@ -67,13 +67,13 @@
         </header>
         <ul class="list-group nav-links">
           <a href="/" class="list-group-item">Start a Space</a>
-          <a href="/join" class="list-group-item">Join an Existing Space</a>
           <a href="/#footer" class="list-group-item">How Can I Help?</a>
           <a href="/about" class="list-group-item">About</a>
         </ul>
       </div>
       <main class="bmd-layout-content">
-        <img class="hero_image" src="/occupancy_promo_sized.png">
+        <div class="hero-header">
+        </div>
         <br><br>
         <div class="container">
           <div id="top-anchor">
@@ -88,19 +88,13 @@
               </div>
               <div class="form-group">
                 <label for="max_oc" class="bmd-label-floating">Max Occupancy</label>
-                <input type="text" class="form-control" id="max_oc">
-              </div>
-              <div class="form-group d-none" id="password-group">
-                <label for="password" class="bmd-label-floating">Password</label>
-                <input type="text" class="form-control" id="password">
+                <input type="text" class="form-control" id="max_oc" required>
               </div>
               <br>
               <div class="center">
                 <button class="btn btn-raised btn-engage">
                     Engage!
-                </button>
-                <!-- <p class="sub-text" id="addPassword">Add Password</p> -->
-                <!-- <p class="sub-text d-none" id="removePassword">Remove Password</p> -->
+                </button>              
               </div>
             </form>
           </div>
