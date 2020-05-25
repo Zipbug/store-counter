@@ -181,10 +181,10 @@ $(function () {
   $('.nav-links a').click(function(){
     $('#nav-drawer').removeClass("bmd-drawer-in");
   });
-  $('.toggle_qr').click(function(){
-    QRCode(document.getElementById("qrcode"), window.location);
-    $('#qrcode').toggleClass('hidden');
-  });
+  if($("#qrcode").length){
+    var $location = new URL(window.location).searchParams.get("i");
+    new QRCode(document.getElementById("qrcode"),  'https://www.occupancyapp.com/room/?i=' + $location);
+  }
 
   $('#copy').click(function(){
     var $temp = $("<input>");
