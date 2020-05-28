@@ -14,6 +14,12 @@ html, body{
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Roboto', sans-serif;
 }
+h1{
+  color: #008466;
+  text-align: center;
+  margin-bottom:20px;
+}
+
 
 h3 {
   color: #008466;
@@ -163,4 +169,8 @@ i {
 
 .invisible {
   visibility: hidden;
+}
+.bmd-drawer-in .navbar-nav{
+  opacity:0;
+  display: none;
 }
