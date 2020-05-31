@@ -101,14 +101,17 @@
           <section class="content">
             <div class="main">
               <h1>Your Occupancy</h1>
-              <div class="room-count hidden">
+              <div class="room-count">
+                <div class="blur">
+                  <div class="loader"></div>
+                </div>
                 <div class="row center mx-3 no-gutters">
                   <div class="col">
-                    <span id="current" class="space-value"></span>
+                    <span id="current" class="space-value">0</span>
                     <p>Current Occupancy</p>
                     <br>
                     <div>
-                      <span id="max" class="space-value"></span>
+                      <span id="max" class="space-value">0</span>
                     </div>
                     <p>Max Occupancy &nbsp;&nbsp;<i id="edit-max" class="fas fa-edit mx-0 green-icon" data-toggle="modal" data-target="#max-change"></i></p>
                   </div>

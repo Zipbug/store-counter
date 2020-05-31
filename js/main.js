@@ -30,6 +30,11 @@ $(function () {
 
   function processURL(){
     var $location = new URL(window.location).searchParams.get("i");
+    var $cookie =  getCookie('hideCookie');
+    console.log("get cookie", $cookie);
+    if($cookie == ""){
+      $('.cookie-banner.d-none').removeClass('d-none');
+    }
     if($location){
       var $url = "https://65f34f5dz4.execute-api.us-east-1.amazonaws.com/dev/space/"  + $location;
 
@@ -66,7 +71,7 @@ $(function () {
 
     var $location = new URL(window.location).searchParams.get("i");
     var $url = "https://65f34f5dz4.execute-api.us-east-1.amazonaws.com/dev/space/"+$location+"/decrement";
-
+    $('.blur').removeClass('d-none');
 
     roomCheck = null;
     callWorker($url,"PUT", updateRoom);
@@ -78,7 +83,7 @@ $(function () {
 
     var $location = new URL(window.location).searchParams.get("i");
     var $url = "https://65f34f5dz4.execute-api.us-east-1.amazonaws.com/dev/space/"+$location+"/increment";
-
+    $('.blur').removeClass('d-none');
 
     roomCheck = null;
     callWorker($url,"PUT", updateRoom);
@@ -90,8 +95,9 @@ $(function () {
     var $location = new URL(window.location).searchParams.get("i");
     var $url = "https://65f34f5dz4.execute-api.us-east-1.amazonaws.com/dev/space/"+$location+"/max/" + $max;
 
+   $('.blur').removeClass('d-none');
    callWorker($url,"PUT", updateRoom);
-   $('#max-change').toggleClass('hidden');
+   $('#max-change').find('.close').trigger('click');
    return false;
   });
 
@@ -130,7 +136,7 @@ $(function () {
     $('#current').text(parseInt(data.occupancy.current));
     $('#max').text(parseInt(data.occupancy.maximum));
     calulateGraph();
-    $('.room-count.hidden').removeClass('hidden');
+    $('.blur').addClass('d-none');
     clearTimeout(roomCheck);
     roomCheck = setTimeout(function(){ processURL() }, 2000);
   }
@@ -183,6 +189,9 @@ $(function () {
   });
 
   $('#cookie-close').click(function(){
+    var d = addMonths(new Date(),12)
+    var n = d.getUTCDate();
+    document.cookie = "hideCookie=true; expires="+n;
     $('#cookie-banner').addClass("d-none");
   });
 
@@ -200,6 +209,31 @@ $(function () {
     $temp.remove()
     alert('copied to clipboard');
   });
+  // Process date and add months. Takes into account leap year.
+  function addMonths(date, months) {
+      var d = date.getDate();
+      date.setMonth(date.getMonth() + +months);
+      if (date.getDate() != d) {
+        date.setDate(0);
+      }
+      return date;
+  }
+
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
   processURL();
 });
