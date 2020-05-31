@@ -31,6 +31,30 @@ h4 {
   font-size: 20px;
 }
 
+.cookie-banner {
+  background-color: #008466;
+  position: fixed;
+  bottom:0;
+  color: white;
+  z-index: 99;
+  padding: 25px 25px;
+  text-align: center;
+  font-size:14px;
+  width: 100%;
+}
+
+.btn-cookie {
+  background-color: #fff;
+  border-color: #fff;
+  color: #008466;
+  min-width: 170px;
+}
+
+.cookie-banner p {
+  margin:0;
+  color: white;
+}
+
 .edit-icon {
     position: absolute;
     right:0;
@@ -161,6 +185,8 @@ i {
   color: white;
   min-width: 120px;
 }
+
+
 
 .btn-plus {
   background-color: rgba(0,0,0,0.8);

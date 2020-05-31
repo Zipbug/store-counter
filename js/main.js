@@ -181,6 +181,12 @@ $(function () {
   $('.nav-links a').click(function(){
     $('#nav-drawer').removeClass("bmd-drawer-in");
   });
+
+  $('#cookie-close').click(function(){
+    $('#cookie-banner').addClass("d-none");
+  });
+
+
   if($("#qrcode").length){
     var $location = new URL(window.location).searchParams.get("i");
     new QRCode(document.getElementById("qrcode"),  'https://www.occupancyapp.com/room/?i=' + $location);
